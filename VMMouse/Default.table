@@ -1,0 +1,19 @@
+"Title" = "VMMouse";
+"Family" = "Pointing Device";
+"Location" = "";
+"Instance" = "0";
+"Version" = "1.1";
+"Class Names" = "VMMouse";
+"Server Name" = "VMMouse";
+"IRQ Levels" = "12";
+"Valid IRQ Levels" = "12";
+"Share IRQ Levels" = "NO";
+"Share IRQs" = "NO";
+"I/O Ports" = "";
+
+"X Offset" = "0";
+"Y Offset" = "0";
+"X Size" = "640";
+"Y Size" = "480";
+
+"Driver Version" = "PROGRAM:VMMouse PROJECT:vmmouse DEVELOPER:root BUILT:NO DATE SET (-B used)";

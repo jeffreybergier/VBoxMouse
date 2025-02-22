@@ -1,0 +1,17 @@
+DOCICONFILES = ();
+FILESTABLE = {
+    C_FILES = (vmmouse_client.c, vmmouse_proto.c);
+    CLASSES = (VMMouse.m, VMMousePointer.m);
+    OTHER_SOURCES = (Makefile, Makefile.preamble, Makefile.postamble, Makefile.driver_preamble, Load_Commands.sect);
+    H_FILES = (compat.h, EventSrcPCPointer.h, PCPointer.h, PCPointerDefs.h, PS2Controller.h, PS2Proto.h, VMMouse.h, VMMouseConfig.h, VMMousePointer.h, vmmouse_client.h, vmmouse_defs.h, vmmouse_proto.h, vmmouse_rpc.h);
+    OTHER_LINKED = ();
+    M_FILES = ();
+};
+LOCALIZABLE_FILES = {
+};
+PROJECTVERSION = 1.1;
+INSTALLDIR = "";
+PROJECTTYPE = Tool;
+PROJECTNAME = VMMouse_reloc;
+GENERATEMAIN = YES;
+LANGUAGE = German;

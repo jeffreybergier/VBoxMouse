@@ -1,0 +1,26 @@
+INSTALLDIR = "";
+COMPILEROPTIONS = "";
+GENERATEMAIN = YES;
+DOCICONFILES = ();
+FILESTABLE = {
+    CLASSES = (VMMouseInspector.m);
+    OTHER_RESOURCES = (Default.table);
+    BUNDLES = ();
+    OTHER_SOURCES = (Makefile, Makefile.preamble, Makefile.postamble, Makefile.private);
+    INTERFACES = (VMMouseInspector.nib);
+    H_FILES = (VMMouseInspector.h);
+    STRINGS_FILES = (Localizable.strings);
+    SUBPROJECTS = ();
+    TOOLS = (VMMouse_reloc.tproj);
+};
+BUNDLE_EXTENSION = config;
+LINKEROPTIONS = "";
+DOCEXTENSIONS = ();
+PROJECTTYPE = Bundle;
+PROJECTVERSION = 1.1;
+LOCALIZABLE_FILES = {
+    VMMouseInspector.nib;
+    Localizable.strings;
+};
+PROJECTNAME = VMMouse;
+LANGUAGE = English;

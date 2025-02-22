@@ -1,0 +1,55 @@
+README
+------
+This driver provides an implementation of the vmmouse protocol used when
+running inside a VMware virtual machine.
+
+With this driver you can get rid of the jumpy PS2 mouse inside a VMware virtual
+machine. It further enables the automatic ungrabbing of the mouse when reaching the border of the virtual machines window. Automatic grabbing of the cursor can't be enabled using this driver as it requires an appropriate display driver which uses the hardware mouse cursor provided by the vmware display driver.
+
+
+Installation
+------------
+To install the driver simply double click the VMMouse.config directory to 
+launch Configure.app. 
+After that use Configure.app to add the driver as active mouse driver and 
+configure the desktop layout to match the one resulting from the chosen display 
+settings (in most cases x and y offset will be zero and the width and the height will be the same ones as in the display settings).
+
+Attention:
+Ensure that the setting "vmmouse.present" in the virtual machine configuration file isn't set to "FALSE" or the driver won't work.
+
+
+Legal
+-----
+The driver is based on the sources of the vmmouse driver available under GPL in the xorg X11 server (cvs.freedesktop.org:/cvs/xorg/xf86-input-vmmouse). They are also contained in the support directory.
+
+It further relies on parts of the darwin kernel sources (v 0.1) provided by the darwin project of apple under the AFPL (EventSrcPCPointer, PCPointer). 
+
+
+/*
+ * Copyright 2006 by Jens Heise.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+ * THE COPYRIGHT HOLDER(S) OR AUTHOR(S) BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * Except as contained in this notice, the name of the copyright holder(s)
+ * and author(s) shall not be used in advertising or otherwise to promote
+ * the sale, use or other dealings in this Software without prior written
+ * authorization from the copyright holder(s) and author(s).
+ */
+

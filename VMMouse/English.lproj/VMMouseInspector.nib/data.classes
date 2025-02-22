@@ -1,0 +1,38 @@
+IODeviceInspector = {
+    ACTIONS = {
+	"channelOrInterruptPicked:" = "channelOrInterruptPicked:"; 
+	"rangeDidChange:" = "rangeDidChange:"; 
+	"showInfo:" = "showInfo:"; 
+    }; 
+    OUTLETS = {
+	accessoryHolder = accessoryHolder; 
+	dmaBox = dmaBox; 
+	dmaMatrix = dmaMatrix; 
+	infoPanel = infoPanel; 
+	infoText = infoText; 
+	inspectionView = inspectionView; 
+	irqBox = irqBox; 
+	irqMatrix = irqMatrix; 
+	memoryBox = memoryBox; 
+	memoryController = memoryController; 
+	origWindow = origWindow; 
+	portsBox = portsBox; 
+	portsController = portsController; 
+	statusTitle = statusTitle; 
+	versionTitle = versionTitle; 
+    }; 
+    SUPERCLASS = Object; 
+};
+VMMouseInspector = {
+    ACTIONS = {"fieldChanged:" = "fieldChanged:"; }; 
+    OUTLETS = {
+	device = device; 
+	heightField = heightField; 
+	layoutBox = layoutBox; 
+	widthField = widthField; 
+	xField = xField; 
+	yField = yField; 
+    }; 
+    SUPERCLASS = IODeviceInspector; 
+};
+FirstResponder = {ACTIONS = {}; SUPERCLASS = Object; };
