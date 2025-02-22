@@ -29,3 +29,56 @@ code and I found these candidates
 
 I have never done any kind of development like this before. So if you are good in C
 or otherwise want to help, let me know. Not sure if I will succeed at this.
+
+## I asked ChatGPT
+
+Yes, VirtualBox uses a similar approach but with its own custom communication mechanism for guest-host interaction. Like VMware, VirtualBox provides paravirtualized drivers (called Guest Additions) to improve performance, including mouse handling. However, the specific implementation differs.
+
+Comparison: VMware vs. VirtualBox Guest Communication
+
+Both VMware and VirtualBox use I/O ports and inline assembly for low-level communication between the guest OS and the hypervisor. However, VirtualBox uses its own port-based protocol.
+
+1. VMware’s Approach (Seen in Your Driver)
+	•	Uses specific I/O ports (like VMMOUSE_PROTO_PORT) to communicate with the hypervisor.
+	•	Uses the inl assembly instruction to send/receive data:
+
+inl %%dx, %%eax
+
+
+	•	This allows VMware to handle guest mouse input efficiently.
+
+2. VirtualBox’s Approach
+	•	VirtualBox also uses I/O ports, but with a different mechanism.
+	•	It provides a custom instruction, VMMCALL, for hypervisor communication.
+	•	Example of how VirtualBox communicates with the host (in assembly):
+
+mov eax, 0x564D5868  ; 'VMXh' Magic number
+mov ebx, param       ; Command parameter
+mov ecx, VBOX_PORT   ; VirtualBox port
+mov edx, 0x5658      ; Port number
+in  eax, dx          ; Read response from VirtualBox
+
+
+	•	Instead of inl, it may use VMCALL or VMMCALL (depending on the CPU type) to communicate.
+
+Does VirtualBox Have a Similar Mouse Driver?
+
+Yes, VirtualBox includes a paravirtualized mouse driver as part of its Guest Additions.
+	•	The VirtualBox mouse driver allows seamless pointer integration, similar to VMware.
+	•	Instead of VMMouse, VirtualBox uses VBoxGuest modules.
+	•	Some parts of its communication are shared memory-based rather than just I/O ports.
+
+Key Differences
+
+Feature	VMware (VMMouse)	VirtualBox (VBoxMouse)
+Communication	I/O ports (inl instruction)	I/O ports + VMCALL / VMMCALL
+Magic Number	VMMOUSE_PROTO_MAGIC	'VMXh'
+Paravirtualization	Yes (optimized mouse input)	Yes (Guest Additions)
+Shared Memory	No (mostly I/O port-based)	Yes, supports shared memory for efficiency
+
+Conclusion
+	•	Yes, VirtualBox uses assembly to communicate with the host, but the method differs.
+	•	Instead of VMware’s inl-based port I/O, VirtualBox often uses VMCALL/VMMCALL for privileged hypervisor interactions.
+	•	If you’re looking to write a VirtualBox-specific mouse driver, you’d need to use VirtualBox’s communication protocol instead of VMware’s.
+
+Would you like help finding VirtualBox’s equivalent mouse driver code? 🚀
