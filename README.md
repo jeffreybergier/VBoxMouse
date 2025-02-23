@@ -25,6 +25,19 @@ code and I found these candidates
  - [/src/VBox/Additions/common/VBoxGuest/lib/VBoxGuestR3LibInternal.h](https://github.com/mirror/vbox/blob/74117a1cb257c00e2a92cf522e8e930bd1c4d64b/src/VBox/Additions/common/VBoxGuest/lib/VBoxGuestR3LibInternal.h#L61)
  - [/include/VBox/VMMDev.h](https://github.com/mirror/vbox/blob/74117a1cb257c00e2a92cf522e8e930bd1c4d64b/include/VBox/VMMDev.h#L1946)
 
+### Update
+
+I was searching around for VirtualBox PS/2 mouse emulation problems and I found this 
+driver written for MSDOS. It works with VMWare and VirtualBox and is very small. 
+This should be much easier than searching the giant VBOX code base.
+
+ - [New DOS mouse driver for VirtualBox/VMware/ PS/2 mice](https://www.vogons.org/viewtopic.php?t=87486)
+ - [git.javispedro.com/cgit/vbados.git/tree/vbox.h](https://git.javispedro.com/cgit/vbados.git/tree/vbox.h)
+ 
+I should be able to make a test application that uses some of these C files to display 
+data from the VirtualBox VM in a window in OpenStep. From there, I can try integrating 
+it into the original VMWare Fusion only OpenStep mouse driver.
+
 ## Open to Help
 
 I have never done any kind of development like this before. So if you are good in C
